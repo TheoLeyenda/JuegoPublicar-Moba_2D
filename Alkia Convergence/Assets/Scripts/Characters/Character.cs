@@ -2,17 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShooter : CharacterEnemy
+public class Character : MonoBehaviour
 {
     // Start is called before the first frame update
-    protected override void Start()
+    public enum TeamCharacter
     {
-        base.Start();
+        Team1,
+        Team2,
+    }
+    public TeamCharacter team;
+    void Start()
+    {
+        
     }
 
     // Update is called once per frame
-    protected override void Update()
+    void Update()
     {
-        base.Update();
+        
     }
 }
