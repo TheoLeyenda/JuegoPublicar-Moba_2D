@@ -11,6 +11,7 @@ public class Character : MonoBehaviour
         Team2,
     }
     public TeamCharacter team;
+    protected bool enableMovement;
     void Start()
     {
         

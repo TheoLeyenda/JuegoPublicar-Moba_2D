@@ -16,4 +16,12 @@ public class Projectile : MonoBehaviour
     {
         rig2D.AddForce(generator.transform.up * speedMovement * Time.deltaTime, ForceMode2D.Impulse);
     }
+    public void ShootRight(GameObject generator)
+    {
+        rig2D.AddForce(generator.transform.right * speedMovement * Time.deltaTime, ForceMode2D.Impulse);
+    }
+    public void ShootRight()
+    {
+        rig2D.AddForce(transform.right * speedMovement * Time.deltaTime, ForceMode2D.Impulse);
+    }
 }

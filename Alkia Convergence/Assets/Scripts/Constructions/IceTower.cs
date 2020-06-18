@@ -6,17 +6,21 @@ public class IceTower : Construction
 {
 
     // Start is called before the first frame update
-    public IceBullet iceBullet;
+    public GameObject iceBulletGo;
     public GameObject generatorBullets;
     private Character targetCharacter;
     public float speedRotateTower;
+    public float delayShoot;
+    protected float auxDelayShoot;
     public RangeDetectedEnemy rangeDetectedEnemy;
     public bool enableRotate = true;
-    private bool enableShoot;
+    [HideInInspector]
+    public bool enableShoot;
     protected override void Start()
     {
         base.Start();
         enableShoot = false;
+        auxDelayShoot = delayShoot;
     }
 
     // Update is called once per frame
@@ -24,18 +28,60 @@ public class IceTower : Construction
     {
         base.Update();
         CheckTarget();
+        CheckDelayShoot();
+    }
+    public void CheckDelayShoot()
+    {
+        if (enableShoot)
+        {
+            if (delayShoot <= 0)
+            {
+                Shoot();
+                delayShoot = auxDelayShoot;
+            }
+            else
+            {
+                delayShoot = delayShoot - Time.deltaTime;
+            }
+        }
+        else
+        {
+            delayShoot = auxDelayShoot;
+        }
+    }
+
+    public void Shoot()
+    {
+        IceBullet refIceBullet = null;
+        refIceBullet = Instantiate(iceBulletGo, generatorBullets.transform.position, iceBulletGo.transform.rotation).GetComponent<IceBullet>();
+        if(refIceBullet != null)
+        {
+            refIceBullet.ShootRight(generatorBullets);
+        }
     }
     public void CheckTarget()
     {
         targetCharacter = rangeDetectedEnemy.GetTargetCharacter();
         if (targetCharacter != null)
         {
-            Debug.Log("ENTRE");
-            Vector2 direction = targetCharacter.transform.position - transform.position;
+            enableShoot = true;
+            //Debug.Log("ENTRE");
+            Vector2 direction = Vector2.zero;
+            if (enableRotate)
+            {
+                direction = targetCharacter.transform.position - transform.position;
+            }
+            else
+            {
+                direction = targetCharacter.transform.position - generatorBullets.transform.position;
+            }
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speedRotateTower * Time.deltaTime);
-           
+        }
+        else
+        {
+            enableShoot = false;
         }
     }
 }
