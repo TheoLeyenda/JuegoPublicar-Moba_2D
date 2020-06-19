@@ -10020,31 +10020,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3394199825469004700, guid: 8dc7f2a1274d89f41a92d66ca5bef1ad,
-        type: 3}
-      propertyPath: maxLife
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3394199825469004700, guid: 8dc7f2a1274d89f41a92d66ca5bef1ad,
-        type: 3}
-      propertyPath: currentLife
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3394199825469004700, guid: 8dc7f2a1274d89f41a92d66ca5bef1ad,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3394199825469004697, guid: 8dc7f2a1274d89f41a92d66ca5bef1ad,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1894665965910037576, guid: 8dc7f2a1274d89f41a92d66ca5bef1ad,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dc7f2a1274d89f41a92d66ca5bef1ad, type: 3}
 --- !u!1001 &6145967535765773037
@@ -10113,11 +10088,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 6145967535249741183, guid: 1ca759ce0ef5df04cbadfc012f666dbb,
-        type: 3}
-      propertyPath: changeTargetForHit
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ca759ce0ef5df04cbadfc012f666dbb, type: 3}

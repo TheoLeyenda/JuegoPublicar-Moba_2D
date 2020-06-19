@@ -96,13 +96,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075f71c5f3da1c348a36a64aa7e76941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: 0
+  state: 0
+  delayStateCongelado: 0
+  currentLife: 100
+  maxLife: 100
   numberPlayer: 1
   rigidbody2: {fileID: 3394199825469004697}
   animator: {fileID: 3394199825469004696}
   typeMovement: 0
   sensibilityController: 0.1
-  currentLife: 0
-  maxLife: 0
   currentMana: 0
   maxMana: 0
   basicDamage: 0
@@ -138,7 +141,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &3394199825469004696
 Animator:
   serializedVersion: 3
@@ -168,7 +171,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

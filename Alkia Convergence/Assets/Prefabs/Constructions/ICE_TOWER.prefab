@@ -140,6 +140,7 @@ MonoBehaviour:
   delayShoot: 1.5
   rangeDetectedEnemy: {fileID: 6145967535381097943}
   enableRotate: 1
+  changeTargetForHit: 0
   enableShoot: 0
 --- !u!50 &6145967535249741177
 Rigidbody2D:

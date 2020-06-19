@@ -48,6 +48,7 @@ public class Character : MonoBehaviour
     protected virtual void Update()
     {
         CheckState();
+        CheckDead();
     }
     public void CheckState()
     {
@@ -85,5 +86,16 @@ public class Character : MonoBehaviour
             case StateCharacter.Veneno:
                 break;
         }
+    }
+    public void CheckDead()
+    {
+        if (currentLife <= 0)
+        {
+            Dead();
+        }
+    }
+    public void Dead()
+    {
+        Destroy(gameObject);
     }
 }
