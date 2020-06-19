@@ -9,11 +9,13 @@ public class IceTower : Construction
     public GameObject iceBulletGo;
     public GameObject generatorBullets;
     private Character targetCharacter;
+    public float timeStunedEffectBullet;
     public float speedRotateTower;
     public float delayShoot;
     protected float auxDelayShoot;
     public RangeDetectedEnemy rangeDetectedEnemy;
     public bool enableRotate = true;
+    public bool changeTargetForHit;
     [HideInInspector]
     public bool enableShoot;
     protected override void Start()
@@ -56,7 +58,17 @@ public class IceTower : Construction
         refIceBullet = Instantiate(iceBulletGo, generatorBullets.transform.position, iceBulletGo.transform.rotation).GetComponent<IceBullet>();
         if(refIceBullet != null)
         {
+            refIceBullet.shooter = this;
+            refIceBullet.damage = damage;
+            refIceBullet.team = team;
             refIceBullet.ShootRight(generatorBullets);
+        }
+    }
+    public void HitShoot()
+    {
+        if (changeTargetForHit)
+        {
+            targetCharacter = null;
         }
     }
     public void CheckTarget()
@@ -64,6 +76,7 @@ public class IceTower : Construction
         targetCharacter = rangeDetectedEnemy.GetTargetCharacter();
         if (targetCharacter != null)
         {
+
             enableShoot = true;
             //Debug.Log("ENTRE");
             Vector2 direction = Vector2.zero;

@@ -37,9 +37,7 @@ public class CharacterPlayer : Character
     [Header("Valor entre el 0 y el 1")]
     public float sensibilityController = 0.1f;
 
-    [Header("Datos Generales del Personaje")]
-    public int currentLife;
-    public int maxLife;
+    [Header("Datos Generales del CharacterPlayer")]
     public int currentMana;
     public int maxMana;
     public int basicDamage;
@@ -56,24 +54,30 @@ public class CharacterPlayer : Character
     public int criticalDamage;
     public float cooldownBattle; // Reducción de enfriamiento(cooldown)
 
-    protected virtual void Start()
+    protected override void Start()
     {
+        base.Start();
+        enableMovement = true;
         rigidbody2 = GetComponent<Rigidbody2D>();
         rigidbody2.velocity = Vector2.zero;
     }
 
     // Update is called once per frame
-    protected virtual void Update()
+    protected override void Update()
     {
+        base.Update();
         CheckAnimations();
-        switch (typeMovement)
+        if (enableMovement)
         {
-            case TypeMovement.Physics:
-                MovementPhysics();
-                break;
-            case TypeMovement.Position:
-                MovementPositions();
-                break;
+            switch (typeMovement)
+            {
+                case TypeMovement.Physics:
+                    MovementPhysics();
+                    break;
+                case TypeMovement.Position:
+                    MovementPositions();
+                    break;
+            }
         }
 
     }
