@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - BaseTower
+  - Waypoints
   layers:
   - Default
   - TransparentFX
