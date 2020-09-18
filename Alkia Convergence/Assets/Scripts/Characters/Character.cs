@@ -38,8 +38,11 @@ public class Character : MonoBehaviour
     protected bool enableMovement;
     public float delayStateCongelado;
     [Header("Datos Generales de cualquier Character")]
-    public int currentLife;
+    public float currentLife;
     public int maxLife;
+    public float AttackSpeed;
+    public float damage;
+    public float defense;
     protected virtual void Start()
     {
     }
